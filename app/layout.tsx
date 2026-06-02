@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'HomeLoan Score - Kalkulator Pinjaman Rumah',
   description: 'Hitung skor kelayakan dan simulasi pinjaman rumah Anda dengan mudah',
   generator: 'v0.app',
+  openGraph: {
+    title: 'HomeLoan Score - Kalkulator Pinjaman Rumah',
+    description: 'Hitung skor kelayakan dan simulasi pinjaman rumah Anda dengan mudah',
+    images: ['/og-image.png'],
+  },
   icons: {
     icon: [
       {
