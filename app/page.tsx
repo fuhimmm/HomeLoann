@@ -961,10 +961,11 @@ export default function Home() {
             </div>
           </Card>
 
-          {/* Insight Metrik */}
-          <Card className="p-6 mt-6 border border-gray-200 rounded">
-            <h3 className="text-lg font-bold text-blue-900 mb-4">Insight Metrik Keuangan</h3>
-            <ul className="space-y-3">
+          {/* Insight Metrik - Only for Approved */}
+          {(result.decision === 'approved' || result.decision === 'considered') && (
+            <Card className="p-6 mt-6 border border-gray-200 rounded">
+              <h3 className="text-lg font-bold text-blue-900 mb-4">Insight Metrik Keuangan</h3>
+              <ul className="space-y-3">
               {/* DBR Check */}
               {result.metrics.dbr > 50 && (
                 <li className="flex items-start gap-3">
@@ -1068,8 +1069,9 @@ export default function Home() {
                   </span>
                 </li>
               )}
-            </ul>
-          </Card>
+              </ul>
+            </Card>
+          )}
 
           {/* Cicilan untuk Diterima */}
           {(result.decision === 'approved' || result.decision === 'considered') && (
