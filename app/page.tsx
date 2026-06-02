@@ -450,49 +450,49 @@ export default function Home() {
 
       {/* Form Stage */}
       {stage === 'form' && (
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
             {/* Left - Form Inputs */}
-            <div className="col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
               {/* Identitas */}
-              <Card className="p-6 bg-white border border-gray-200 rounded">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Data Identitas</h3>
-                <div className="grid grid-cols-2 gap-4">
+              <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4">Data Identitas</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <input
                     type="text"
                     placeholder="Nama Lengkap"
                     value={formData.namaLengkap}
                     onChange={(e) => handleInputChange('namaLengkap', e.target.value)}
-                    className="px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                    className="px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   />
                   <input
                     type="text"
                     placeholder="No. Identitas"
                     value={formData.noIdentitas}
                     onChange={(e) => handleInputChange('noIdentitas', e.target.value)}
-                    className="px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                    className="px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   />
                   <input
                     type="text"
                     placeholder="Alamat"
                     value={formData.alamat}
                     onChange={(e) => handleInputChange('alamat', e.target.value)}
-                    className="col-span-2 px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                    className="sm:col-span-2 px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   />
                   <input
                     type="text"
                     placeholder="No. Telepon"
                     value={formData.noTelepon}
                     onChange={(e) => handleInputChange('noTelepon', e.target.value)}
-                    className="col-span-2 px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                    className="sm:col-span-2 px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   />
                 </div>
               </Card>
 
               {/* Pekerjaan */}
-              <Card className="p-6 bg-white border border-gray-200 rounded">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Data Pekerjaan</h3>
-                <div className="grid grid-cols-2 gap-4">
+              <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4">Data Pekerjaan</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <select
                     value={formData.jenisPekerjaan}
                     onChange={(e) => handleInputChange('jenisPekerjaan', e.target.value)}
@@ -562,66 +562,66 @@ export default function Home() {
               </Card>
 
               {/* Pendapatan & Modal */}
-              <Card className="p-6 bg-white border border-gray-200 rounded">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Keuangan</h3>
-                <div className="grid grid-cols-2 gap-4">
+              <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4">Keuangan</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-sm font-semibold text-gray-700">Pendapatan Bersih</label>
+                    <label className="text-xs sm:text-sm font-semibold text-gray-700 block mb-1.5">Pendapatan Bersih</label>
                     <input
                       type="text"
                       placeholder="Rp0,00"
                       value={formatRupiah(formData.pendapatanBersih)}
                       onChange={(e) => handleMoneyInput('pendapatanBersih', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold text-gray-700">Cicilan Berjalan</label>
+                    <label className="text-xs sm:text-sm font-semibold text-gray-700 block mb-1.5">Cicilan Berjalan</label>
                     <input
                       type="text"
                       placeholder="Rp0,00"
                       value={formatRupiah(formData.cicilanBerjalan)}
                       onChange={(e) => handleMoneyInput('cicilanBerjalan', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold text-gray-700">Aset Likuid</label>
+                    <label className="text-xs sm:text-sm font-semibold text-gray-700 block mb-1.5">Aset Likuid</label>
                     <input
                       type="text"
                       placeholder="Rp0,00"
                       value={formatRupiah(formData.asetLikuid)}
                       onChange={(e) => handleMoneyInput('asetLikuid', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold text-gray-700">Total Hutang</label>
+                    <label className="text-xs sm:text-sm font-semibold text-gray-700 block mb-1.5">Total Hutang</label>
                     <input
                       type="text"
                       placeholder="Rp0,00"
                       value={formatRupiah(formData.totalHutang)}
                       onChange={(e) => handleMoneyInput('totalHutang', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
-                  <div className="col-span-2">
-                    <label className="text-sm font-semibold text-gray-700">Total Modal</label>
+                  <div className="sm:col-span-2">
+                    <label className="text-xs sm:text-sm font-semibold text-gray-700 block mb-1.5">Total Modal</label>
                     <input
                       type="text"
                       placeholder="Rp0,00"
                       value={formatRupiah(formData.totalModal)}
                       onChange={(e) => handleMoneyInput('totalModal', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                 </div>
               </Card>
 
               {/* Properti */}
-              <Card className="p-6 bg-white border border-gray-200 rounded">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Simulasi KPR</h3>
-                <div className="grid grid-cols-2 gap-4 mb-6">
+              <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4">Simulasi KPR</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div>
                     <label className="text-sm font-semibold text-gray-700">Harga Properti</label>
                     <input
@@ -671,9 +671,9 @@ export default function Home() {
               />
 
               {/* Character Scoring */}
-              <Card className="p-6 bg-white border border-gray-200 rounded">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Character (Karakter Nasabah)</h3>
-                <div className="space-y-4">
+              <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4">Character (Karakter Nasabah)</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <ScoreOption
                     label="1. Hubungan dengan Bank"
                     options={[
@@ -907,11 +907,11 @@ export default function Home() {
             </div>
 
             {/* Right - Metrics Display */}
-            <div className="col-span-1 space-y-4">
-              <div className="sticky top-6">
+            <div className="lg:col-span-1 space-y-4">
+              <div className="lg:sticky lg:top-6">
                 <Card className="p-4 bg-blue-50 border border-blue-200 rounded">
-                  <h4 className="font-bold text-blue-900 mb-4">Metrik Otomatis</h4>
-                  <div className="space-y-3 text-sm">
+                  <h4 className="text-sm sm:text-base font-bold text-blue-900 mb-3 sm:mb-4">Metrik Otomatis</h4>
+                  <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                     <MetricRow label="Plafon KPR" value={`Rp ${metrics.plafon.toLocaleString('id-ID')}`} />
                     <MetricRow label="Cicilan Bulanan" value={`Rp ${metrics.cicilan.toLocaleString('id-ID')}`} />
                     <MetricRow label="DBR" value={`${metrics.dbr.toFixed(2)}%`} status={getDBRStatus(metrics.dbr)} />
