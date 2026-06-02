@@ -92,34 +92,34 @@ export function InterestRateSection({
   };
 
   return (
-    <Card className="p-6 bg-white border border-gray-200 rounded">
-      <div className="mb-6">
-        <h3 className="text-xl font-bold text-blue-900 mb-2">Pilihan Suku Bunga (Rate)</h3>
-        <p className="text-sm text-gray-600 flex items-center gap-2">
-          <Info className="w-4 h-4" />
+    <Card className="p-4 sm:p-6 bg-white border border-gray-200 rounded">
+      <div className="mb-4 sm:mb-6">
+        <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-2">Pilihan Suku Bunga (Rate)</h3>
+        <p className="text-xs sm:text-sm text-gray-600 flex items-center gap-2">
+          <Info className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
           Pilih jenis suku bunga yang sesuai dengan kebutuhan Anda
         </p>
       </div>
 
       <Tabs value={tipeBunga || 'fixed'} onValueChange={(v) => onTipeChange(v as any)}>
-        <TabsList className="grid w-full grid-cols-3 mb-6">
-          <TabsTrigger value="fixed">Tetap (Fixed)</TabsTrigger>
-          <TabsTrigger value="berjenjang">Berjenjang</TabsTrigger>
-          <TabsTrigger value="floating">Mengambang (Floating)</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 gap-1 sm:gap-2 mb-4 sm:mb-6 p-1 h-auto">
+          <TabsTrigger value="fixed" className="text-xs sm:text-sm py-1 sm:py-2">Tetap</TabsTrigger>
+          <TabsTrigger value="berjenjang" className="text-xs sm:text-sm py-1 sm:py-2">Berjenjang</TabsTrigger>
+          <TabsTrigger value="floating" className="text-xs sm:text-sm py-1 sm:py-2">Mengambang</TabsTrigger>
         </TabsList>
 
         {/* FIXED RATE */}
-        <TabsContent value="fixed" className="space-y-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-            <p className="text-sm text-blue-900">
+        <TabsContent value="fixed" className="space-y-3 sm:space-y-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+            <p className="text-xs sm:text-sm text-blue-900">
               <strong>Suku bunga tetap:</strong> Bunga tidak berubah selama masa pinjaman. 
               Cicilan Anda stabil dan mudah direncanakan.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-2 block">
+              <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                 Suku Bunga per Tahun (%)
               </label>
               <input
@@ -127,24 +127,24 @@ export function InterestRateSection({
                 step="0.1"
                 value={sukuBunga || ''}
                 onChange={(e) => onRateChange(parseFloat(e.target.value) || 0)}
-                className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                 placeholder="7.5"
               />
             </div>
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-2 block">
+              <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                 Tenor (Tahun)
               </label>
               <input
                 type="number"
                 value={tenor || ''}
                 disabled
-                className="w-full px-3 py-2 border border-gray-300 rounded bg-gray-100 text-gray-900"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-gray-100 text-gray-900"
               />
             </div>
           </div>
 
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mt-3 sm:mt-4">
             <p className="text-sm text-green-900">
               <strong>Cicilan bulanan tetap:</strong> Rp{' '}
               {tenor && sukuBunga
@@ -160,44 +160,44 @@ export function InterestRateSection({
         </TabsContent>
 
         {/* TIERED RATE */}
-        <TabsContent value="berjenjang" className="space-y-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-            <p className="text-sm text-blue-900">
+        <TabsContent value="berjenjang" className="space-y-3 sm:space-y-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+            <p className="text-xs sm:text-sm text-blue-900">
               <strong>Suku bunga berjenjang:</strong> Bunga berubah sesuai dengan tahapan pinjaman. 
               Biasanya lebih rendah di awal, kemudian naik setelahnya.
             </p>
           </div>
 
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <h4 className="font-semibold text-gray-900">Tahapan Suku Bunga</h4>
+            <div className="flex justify-between items-center gap-2">
+              <h4 className="text-sm sm:text-base font-semibold text-gray-900">Tahapan Suku Bunga</h4>
               <Button
                 onClick={handleAddTier}
                 size="sm"
-                className="bg-blue-600 hover:bg-blue-700 text-white"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm py-1 px-2 sm:px-3"
               >
-                <Plus className="w-4 h-4 mr-1" />
-                Tambah Tahap
+                <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-0.5 sm:mr-1" />
+                Tambah
               </Button>
             </div>
 
             {localBerjenjang.map((tier, index) => (
-              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3">
+              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3">
                 <div className="flex justify-between items-start">
-                  <h5 className="font-semibold text-gray-900">Tahap {index + 1}</h5>
+                  <h5 className="text-sm sm:text-base font-semibold text-gray-900">Tahap {index + 1}</h5>
                   {localBerjenjang.length > 1 && (
                     <button
                       onClick={() => handleRemoveTier(index)}
                       className="text-red-600 hover:text-red-700"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
                   )}
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 mb-1 block">
+                    <label className="text-xs font-semibold text-gray-700 mb-0.5 block">
                       Dari Tahun
                     </label>
                     <input
@@ -207,11 +207,11 @@ export function InterestRateSection({
                       onChange={(e) =>
                         handleTierChange(index, 'tahunAwal', parseInt(e.target.value) || 1)
                       }
-                      className="w-full px-2 py-2 border border-gray-300 rounded bg-white text-gray-900 text-sm"
+                      className="w-full px-2 py-1.5 text-xs border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 mb-1 block">
+                    <label className="text-xs font-semibold text-gray-700 mb-0.5 block">
                       Hingga Tahun
                     </label>
                     <input
@@ -221,11 +221,11 @@ export function InterestRateSection({
                       onChange={(e) =>
                         handleTierChange(index, 'tahunAkhir', parseInt(e.target.value) || 1)
                       }
-                      className="w-full px-2 py-2 border border-gray-300 rounded bg-white text-gray-900 text-sm"
+                      className="w-full px-2 py-1.5 text-xs border border-gray-300 rounded bg-white text-gray-900"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 mb-1 block">
+                    <label className="text-xs font-semibold text-gray-700 mb-0.5 block">
                       Suku Bunga (%)
                     </label>
                     <input
@@ -254,18 +254,18 @@ export function InterestRateSection({
         </TabsContent>
 
         {/* FLOATING RATE */}
-        <TabsContent value="floating" className="space-y-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-            <p className="text-sm text-blue-900">
+        <TabsContent value="floating" className="space-y-3 sm:space-y-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+            <p className="text-xs sm:text-sm text-blue-900">
               <strong>Suku bunga mengambang:</strong> Bunga mengikuti perubahan pasar (interest rate acuan/BI Rate).
               Memiliki batasan minimal (floor) dan maksimal (ceiling).
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                   Suku Bunga Awal (%)
                 </label>
                 <input
@@ -275,12 +275,12 @@ export function InterestRateSection({
                   onChange={(e) =>
                     handleFloatingChange('rateAwal', parseFloat(e.target.value) || 0)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   placeholder="4.5"
                 />
               </div>
               <div>
-                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                   Spread Awal (%)
                 </label>
                 <input
@@ -290,15 +290,15 @@ export function InterestRateSection({
                   onChange={(e) =>
                     handleFloatingChange('spreadAwal', parseFloat(e.target.value) || 0)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   placeholder="2.0"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                   Suku Bunga Minimum / Floor (%)
                 </label>
                 <input
@@ -308,12 +308,12 @@ export function InterestRateSection({
                   onChange={(e) =>
                     handleFloatingChange('floor', parseFloat(e.target.value) || 0)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   placeholder="3.5"
                 />
               </div>
               <div>
-                <label className="text-sm font-semibold text-gray-700 mb-2 block">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2 block">
                   Suku Bunga Maksimum / Ceiling (%)
                 </label>
                 <input
@@ -323,15 +323,15 @@ export function InterestRateSection({
                   onChange={(e) =>
                     handleFloatingChange('ceiling', parseFloat(e.target.value) || 0)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-900"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-900"
                   placeholder="7.0"
                 />
               </div>
             </div>
           </div>
 
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-            <p className="text-sm text-yellow-900 mb-2">
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+            <p className="text-xs sm:text-sm text-yellow-900 mb-1 sm:mb-2">
               <strong>Perkiraan rentang suku bunga:</strong> {localFloating.floor.toFixed(2)}% - {localFloating.ceiling.toFixed(2)}%
             </p>
             <p className="text-xs text-yellow-800">
