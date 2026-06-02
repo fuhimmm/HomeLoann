@@ -1098,25 +1098,6 @@ export default function Home() {
                   </div>
                 </div>
               </Card>
-
-              {/* Alasan Diterima */}
-              <Card className="p-6 mt-6 border border-gray-200 rounded">
-                <h3 className="text-lg font-bold text-blue-900 mb-4">Alasan Diterima</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Profil keuangan Anda memenuhi standar kelayakan bank.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Cicilan bulanan terjangkau terhadap penghasilan Anda (DBR: {result.metrics.dbr.toFixed(2)}%).</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Uang muka dan nilai jaminan memenuhi persyaratan (LTV: {result.metrics.ltv.toFixed(2)}%).</span>
-                  </li>
-                </ul>
-              </Card>
             </>
           ) : (
             <Card className="p-6 mt-6 border border-gray-200 rounded">
