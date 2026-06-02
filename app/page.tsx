@@ -910,7 +910,7 @@ export default function Home() {
             <div className="lg:col-span-1 space-y-4">
               <div className="lg:sticky lg:top-6">
                 <Card className="p-4 bg-blue-50 border border-blue-200 rounded">
-                  <h4 className="text-sm sm:text-base font-bold text-blue-900 mb-3 sm:mb-4">Metrik Otomatis</h4>
+                  <h4 className="text-sm sm:text-base font-bold text-blue-900 mb-3 sm:mb-4">Insight KPR</h4>
                   <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                     <MetricRow label="Plafon KPR" value={`Rp ${metrics.plafon.toLocaleString('id-ID')}`} />
                     <MetricRow label="Cicilan Bulanan" value={`Rp ${metrics.cicilan.toLocaleString('id-ID')}`} />
