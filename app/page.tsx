@@ -961,11 +961,9 @@ export default function Home() {
             </div>
           </Card>
 
-          {/* Alasan */}
+          {/* Insight Metrik */}
           <Card className="p-6 mt-6 border border-gray-200 rounded">
-            <h3 className="text-lg font-bold text-blue-900 mb-4">
-              {(result.decision === 'approved' || result.decision === 'considered') ? 'Alasan Diterima' : 'Alasan Ditolak'}
-            </h3>
+            <h3 className="text-lg font-bold text-blue-900 mb-4">Insight Metrik Keuangan</h3>
             <ul className="space-y-3">
               {/* DBR Check */}
               {result.metrics.dbr > 50 && (
@@ -1073,35 +1071,34 @@ export default function Home() {
             </ul>
           </Card>
 
-          {/* Cicilan dan Rekomendasi */}
-          {(result.decision === 'approved' || result.decision === 'considered') ? (
-            <>
-              {/* Detail Cicilan untuk Diterima */}
-              <Card className="p-6 mt-6 border border-green-200 bg-green-50 rounded">
-                <h3 className="text-lg font-bold text-green-900 mb-4">Detail Cicilan Bulanan</h3>
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <p className="text-sm text-green-800 mb-1">Plafon Pinjaman</p>
-                    <p className="text-2xl font-bold text-green-900">{formatRupiahFull(result.metrics.plafon)}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-green-800 mb-1">Cicilan per Bulan</p>
-                    <p className="text-2xl font-bold text-green-900">{formatRupiahFull(Math.round(result.metrics.cicilan))}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-green-800 mb-1">Jangka Waktu</p>
-                    <p className="text-2xl font-bold text-green-900">{formData.tenor} Tahun</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-green-800 mb-1">Suku Bunga</p>
-                    <p className="text-2xl font-bold text-green-900">{formData.sukuBunga}% ({formData.tipeBunga || 'Pilih'})</p>
-                  </div>
+          {/* Cicilan untuk Diterima */}
+          {(result.decision === 'approved' || result.decision === 'considered') && (
+            <Card className="p-6 mt-6 border border-green-200 bg-green-50 rounded">
+              <h3 className="text-lg font-bold text-green-900 mb-4">Detail Cicilan Bulanan</h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <p className="text-sm text-green-800 mb-1">Plafon Pinjaman</p>
+                  <p className="text-2xl font-bold text-green-900">{formatRupiahFull(result.metrics.plafon)}</p>
                 </div>
-              </Card>
-            </>
-          ) : (
-            <Card className="p-6 mt-6 border border-gray-200 rounded">
-              <h3 className="text-lg font-bold text-blue-900 mb-4">Rekomendasi</h3>
+                <div>
+                  <p className="text-sm text-green-800 mb-1">Cicilan per Bulan</p>
+                  <p className="text-2xl font-bold text-green-900">{formatRupiahFull(Math.round(result.metrics.cicilan))}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-green-800 mb-1">Jangka Waktu</p>
+                  <p className="text-2xl font-bold text-green-900">{formData.tenor} Tahun</p>
+                </div>
+                <div>
+                  <p className="text-sm text-green-800 mb-1">Suku Bunga</p>
+                  <p className="text-2xl font-bold text-green-900">{formData.sukuBunga}% ({formData.tipeBunga || 'Pilih'})</p>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* Rekomendasi untuk Semua Kasus */}
+          <Card className="p-6 mt-6 border border-gray-200 rounded">
+            <h3 className="text-lg font-bold text-blue-900 mb-4">Rekomendasi</h3>
               <ul className="space-y-3">
                 {result.metrics.dbr > 50 && (
                   <li className="flex items-start gap-3">
@@ -1151,7 +1148,6 @@ export default function Home() {
                 </li>
               </ul>
             </Card>
-          )}
 
           <div className="flex gap-4 mt-8 justify-center">
             <Button onClick={handleReset} className="bg-blue-900 text-white hover:bg-blue-800 rounded">
