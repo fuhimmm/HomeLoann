@@ -417,7 +417,7 @@ export default function Home() {
       <header className="bg-blue-900 text-white border-b border-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold">HomeLoan Score</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold">HomeScore</h1>
             <p className="text-blue-100 text-xs sm:text-sm mt-1">Penilaian Kelayakan Kredit Properti</p>
           </div>
           {stage !== 'landing' && (
@@ -1155,6 +1155,11 @@ export default function Home() {
             <Button onClick={handleReset} className="bg-blue-900 text-white hover:bg-blue-800 rounded">
               Mulai Ulang
             </Button>
+          </div>
+
+          {/* Credits */}
+          <div className="text-center mt-12">
+            <p className="text-xs text-gray-400">Adinda, Dinda, Eva, Khaliza</p>
           </div>
         </div>
       )}
