@@ -7,11 +7,11 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'HomeLoan Score - Kalkulator Pinjaman Rumah',
+  title: 'HomeScore - Kalkulator Pinjaman Rumah',
   description: 'Hitung skor kelayakan dan simulasi pinjaman rumah Anda dengan mudah',
   generator: 'v0.app',
   openGraph: {
-    title: 'HomeLoan Score - Kalkulator Pinjaman Rumah',
+    title: 'HomeScore - Kalkulator Pinjaman Rumah',
     description: 'Hitung skor kelayakan dan simulasi pinjaman rumah Anda dengan mudah',
     images: ['/og-image.png'],
   },
