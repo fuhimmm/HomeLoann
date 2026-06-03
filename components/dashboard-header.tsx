@@ -23,7 +23,7 @@ export default function DashboardHeader({ userName }: DashboardHeaderProps) {
     <header className="border-b-2 border-black bg-white">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-black">HomeLoan Score</h1>
+          <h1 className="text-2xl font-bold text-black">HomeScore</h1>
           <p className="text-sm text-gray-600">Dashboard</p>
         </div>
         <div className="flex items-center space-x-6">
